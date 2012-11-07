@@ -1,0 +1,17 @@
+echo application using ssh module in Erlang
+
+How to run:
+1. Run erl
+
+2. Input the following commands in the erl
+	crypto:start().
+	ssh:start().
+	{ok, Pid} = ssh_cli:listen(fun sshecho:start/0, 8642)
+
+3. Connect to the ssh server
+ssh localhost -p 8642
+To disconnect, input "q", and then enter.
+
+4. Stop the Server
+If you want to stop the server, in the erl, input the command
+	ssh:stop_daemon(Pid).
